@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 public class DatabaseRule extends ExternalResource {
   @Override
   protected void before() {
-    DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon_test", "postgres", "root");
+    DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon_test", null, null);
   }
 
   @Override
