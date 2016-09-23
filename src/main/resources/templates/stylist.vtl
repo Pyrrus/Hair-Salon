@@ -1,7 +1,7 @@
-<h1>Viewing the $stylist.getName()</h1>
+<h1>Viewing the Stylist: $stylist.getName()</h1>
 <div class="row">
   <div class="col-md-6">
-  	<h2>Information on $stylist.getName()</h2>
+  	<h3 class="list-title">Information on $stylist.getName():</h3>
   	<p>Style:</p>
   	<p class="space">$stylist.getStyle()</p>
   	<p>Other Skills:</p>
@@ -9,7 +9,7 @@
   	<a href = "/stylist/$stylist.getId()/edit" class="btn btn-primary">Edit $stylist.getName()</a>
   </div>
   <div class="col-md-6">
-  	<h2>Client List</h2>
+  	<h3 class="list-title">Client List:</h3>
   	#if ($stylist.getClient().size() > 0)
   	  #foreach ($client in $stylist.getClient())
 	    <a href="/client/$client.getId()"><h2>$client.getName()</h2></a>

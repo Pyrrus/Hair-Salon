@@ -1,10 +1,9 @@
 body {
-  background-color: dimgray;
+  background-color: silver;
 }
 
 nav {
-  background-color: silver !important;
-  border-color: gray !important;
+  background-color: #eee !important;
 }
 
 nav a {
@@ -15,17 +14,10 @@ nav a:hover {
   color: dimgray !important;
 }
 
-.jumbotron {
-  background-color: silver !important;
-  border-color: gray !important;
-}
-
-.successfully {
-  background: limegreen;
-  color: maroon;
+.list-title {
   text-align: center;
-  font-size: 30px;
-  font-weight: 800;
+  border-bottom-style: solid;
+  padding-bottom: 20px;
 }
 
 .space {
