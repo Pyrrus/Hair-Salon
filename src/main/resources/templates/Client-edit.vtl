@@ -1,14 +1,39 @@
-<h1>Add meaning for $word.getWord()</h1>
+<h1>Edit $client.getName()</h1>
 
-<form action="/word/$word.getId()" method="post">
+<form action="/client/$client.getId()/edit" method="post">
   <div class='form-group'>
-  	<label for='name'>Grammar type for $word.getWord():</label>
-  	<input name='type' id='type' type='text' class='form-control' required />
+  	<label for='name'>Name for client</label>
+  	<input name='name' id='name' type='text' class='form-control' value="$client.getName()" required />
   </div>
 
   <div class='form-group'>
-    <label for='name'>Definition for $word.getWord():</label>
-    <textarea id='info' name='info' class='form-control' required></textarea>
+  	<label for='name'>Likes for client. For example, like short cut</label>
+  	<textarea name='likes' id='name' type='text' class='form-control' required />$client.getLike()</textarea>
   </div>
+
+  <div class="form-group">
+    <label for="sel1">Select list:</label>
+    <select class="form-control" name="style">
+      #if ($client.getStylistId() == -1)
+        <option value="-1" selected>No Stylist</option>
+      #else
+      	<option value="-1">No Stylist</option>
+      #end
+      #if ($stylists.size() > 0)
+        #foreach ($stylist in $stylists)
+          #if ($client.getStylistId() == $stylist.getId())
+	        <option value="$stylist.getId()" selected>$stylist.getName()</option>
+	      #else
+            <option value="$stylist.getId()">$stylist.getName()</option>
+          #end
+        #end
+      #end
+    </select>
+  </div>
+
   <button type='submit' class='btn btn-success'>Submit</button>
+</form>
+
+<form action="/client/$client.getId()/delete" method="post">
+  <button type='submit' class='btn btn-danger'>Submit</button>
 </form>

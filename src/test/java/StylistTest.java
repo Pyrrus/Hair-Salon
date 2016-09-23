@@ -98,4 +98,15 @@ public class StylistTest {
     assertEquals(-1, updateClient2.getStylistId());
   }
 
+  @Test
+  public void update_updatesStyleWithSameContent_true() {
+    String style = "like short cut";
+    String name = "Adam";
+    String skills = "bad with kids";
+    Stylist testStylist = new Stylist("bob", "short cut", "great with kids");
+    testStylist.save();
+    testStylist.update(name, style, skills);
+    assertEquals(name, testStylist.getName());
+  }
+
 }

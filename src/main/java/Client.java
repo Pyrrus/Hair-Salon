@@ -71,13 +71,17 @@ public class Client {
     }
   }
 
-  public void update(String likes) {
+  public void update(String name, String likes, int stylist_id) {
     try (Connection con = DB.sql2o.open()) {
       this.likes = likes;
-      String sql = "UPDATE clients SET likes = :likes WHERE id = :id";
+      this.name = name;
+      this.stylist_id = stylist_id;
+      String sql = "UPDATE clients SET likes = :likes, name = :name, stylist_id = :stylist_id WHERE id = :id";
       con.createQuery(sql)
       .addParameter("id", this.id)
-      .addParameter("likes", likes)
+      .addParameter("name", this.name)
+      .addParameter("stylist_id", this.stylist_id)
+      .addParameter("likes", this.likes)
       .executeUpdate();
     }
   }

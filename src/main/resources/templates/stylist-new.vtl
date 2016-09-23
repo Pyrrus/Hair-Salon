@@ -1,11 +1,20 @@
-<h1>Add a word</h1>
+<h1>Add new stylist</h1>
 
-<p>Add a word here:</p>
-
-<form action="/word" method="post">
+<form action="/stylist/new" method="post">
   <div class='form-group'>
-    <label for='name'>New word:</label>
-    <input id='name' name='name' class='form-control' type='text' required />
+  	<label for='name'>Name for Stylist</label>
+  	<input name='name' id='name' type='text' class='form-control' required />
   </div>
+
+  <div class='form-group'>
+  	<label for='name'>Hair Styles</label>
+  	<textarea name='styles' id='name' type='text' class='form-control' required /></textarea>
+  </div>
+
+  <div class='form-group'>
+  	<label for='name'>Other skills like great with kids.</label>
+  	<textarea name='skills' id='name' type='text' class='form-control' required /></textarea>
+  </div>
+
   <button type='submit' class='btn btn-success'>Submit</button>
 </form>

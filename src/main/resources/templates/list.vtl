@@ -1,0 +1,39 @@
+<h2>List for both Stylist and client</h2>
+<h3>If need to edit click on the names on any Stylist or client</h3>
+
+<div class="row">
+  <div class="col-md-6">
+  	<a href = "/stylist/new" class="btn btn-primary btn-block">Add new Styist</a>
+  	#if ($stylists.size() > 0)
+  	  <div class="row"> 
+	 	#foreach ($stylist in $stylists)
+	      <div class="col-md-6">
+	      	<a href="/stylist/$stylist.getId()/edit"><h2>$stylist.getName()</h2></a>
+	      	<p>Style: $stylist.getStyle()</p>
+	      	<p>Other: $stylist.getSkills()</p>
+	      </div>
+	 	#end
+	  </div>
+	#else 
+	  <h3>need to add more stylist</h3>
+	#end
+  </div>
+  <div class="col-md-6">
+    <a href = "/client/new" class="btn btn-primary btn-block">Add new client</a>
+    #if ($clients.size() > 0)
+  	  <div class="row"> 
+	 	#foreach ($client in $clients)
+	      <div class="col-md-6">
+	      	<a href="/client/$client.getId()/edit"><h2>$client.getName()</h2></a>
+	      	<p>Likes: $client.getLike()</p>
+	      	#if ($client.getStylistId() == -1)
+	      	  <p>Need Stylist</p>
+	      	#end
+	      </div>
+	 	#end
+	  </div>
+	#else 
+	  <h3>need to add more client</h3>
+	#end
+  </div>
+</div>

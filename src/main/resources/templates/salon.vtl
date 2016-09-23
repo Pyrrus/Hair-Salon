@@ -1,0 +1,15 @@
+<h1>View the Stylists</h1>
+
+#if ($stylists.size() > 0) 
+ <div class="row">
+ 	#foreach ($stylist in $stylists)
+      <div class="col-md-3">
+      	<h2>$stylist.getName()</h2>
+      	<p>$stylist.getStyle()</p>
+      	<p>$stylist.getSkills()</p>
+      </div>
+ 	#end
+ </div>
+#else 
+  <h3>need to add more stylist</h3>
+#end

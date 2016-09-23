@@ -62,9 +62,11 @@ public class ClientTest {
   @Test
   public void update_updatesClientWithSameContent_true() {
     String like = "like short cut";
+    String name = "bob";
+    int id = -10;
     Client firstClient = new Client("Adam", "like short cut and talking with person", 1);
     firstClient.save();
-    firstClient.update(like);
+    firstClient.update(name, like, id);
     assertEquals(like, firstClient.getLike());
   }
 

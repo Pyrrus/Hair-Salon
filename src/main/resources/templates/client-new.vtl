@@ -1,14 +1,27 @@
-<h1>Add meaning for $word.getWord()</h1>
+<h1>Add new client</h1>
 
-<form action="/word/$word.getId()" method="post">
+<form action="/client/new" method="post">
   <div class='form-group'>
-  	<label for='name'>Grammar type for $word.getWord():</label>
-  	<input name='type' id='type' type='text' class='form-control' required />
+  	<label for='name'>Name for client</label>
+  	<input name='name' id='name' type='text' class='form-control' required />
   </div>
 
   <div class='form-group'>
-    <label for='name'>Definition for $word.getWord():</label>
-    <textarea id='info' name='info' class='form-control' required></textarea>
+  	<label for='name'>Likes for client. For example, like short cut</label>
+  	<textarea name='likes' id='name' type='text' class='form-control' required /></textarea>
   </div>
+
+  <div class="form-group">
+    <label for="sel1">Select list:</label>
+    <select class="form-control" name="style">
+      <option value="-1">No Stylist</option>
+      #if ($stylists.size() > 0)
+        #foreach ($stylist in $stylists)
+          <option value="$stylist.getId()">$stylist.getName()</option>
+        #end
+      #end
+    </select>
+  </div>
+
   <button type='submit' class='btn btn-success'>Submit</button>
 </form>
