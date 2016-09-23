@@ -63,32 +63,35 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // get("/stylist/:id/edit",  (request, response) -> {
-    //   Map <String, Object> model = new HashMap <String, Object>();
-    //   Stylist found = Stylist.find(Integer.parseInt(request.params(":id")));
-    //   model.put("template", "templates/stylist-edit.vtl");
-    //   model.put("title", "Edit the stylist: " + found.getName());
-    //   model.put("stylist", found);
-    //   model.put("header", header);
-    //   model.put("css", "");
-    // }, new VelocityTemplateEngine());
+    get("/stylist/:id/edit",  (request, response) -> {
+      Map <String, Object> model = new HashMap <String, Object>();
+      model.put("template", "templates/stylist-edit.vtl");
+      Stylist found = Stylist.find(Integer.parseInt(request.params(":id")));
+      model.put("title", "Edit stylist: " + found.getName());
+      model.put("stylist", found);
+      model.put("header", header);
+      model.put("css", "");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
-    // post("/stylist/:id/edit",  (request, response) -> {
-    //   Map <String, Object> model = new HashMap <String, Object>();
-    //   Stylist found = Stylist.find(Integer.parseInt(request.params(":id")));
-    //   String name = request.queryParams("name");
-    //   String style = request.queryParams("styles");
-    //   String skills = request.queryParams("skills");
-    //   found.update(name, style, skills);
-    //   response.redirect("/list");
-    // }, new VelocityTemplateEngine());
+    post("/stylist/:id/edit",  (request, response) -> {
+      Map <String, Object> model = new HashMap <String, Object>();
+      Stylist found = Stylist.find(Integer.parseInt(request.params(":id")));
+      String name = request.queryParams("name");
+      String style = request.queryParams("styles");
+      String skills = request.queryParams("skills");
+      found.update(name, style, skills);
+      response.redirect("/list");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
-    // post("/stylist/:id/delete",  (request, response) -> {
-    //   Map <String, Object> model = new HashMap <String, Object>();
-    //   Stylist found = Stylist.find(Integer.parseInt(request.params(":id")));
-    //   found.delete();
-    //   response.redirect("/list");
-    // }, new VelocityTemplateEngine());
+    post("/stylist/:id/delete",  (request, response) -> {
+      Map <String, Object> model = new HashMap <String, Object>();
+      Stylist found = Stylist.find(Integer.parseInt(request.params(":id")));
+      found.delete();
+      response.redirect("/list");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
     get("/client/new",  (request, response) -> {
       Map <String, Object> model = new HashMap <String, Object>();
