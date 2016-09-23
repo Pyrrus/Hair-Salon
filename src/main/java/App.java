@@ -63,6 +63,17 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    get("/stylist/:id",  (request, response) -> {
+      Map <String, Object> model = new HashMap <String, Object>();
+      model.put("template", "templates/stylist.vtl");
+      Stylist found = Stylist.find(Integer.parseInt(request.params(":id")));
+      model.put("title", "View stylist: " + found.getName());
+      model.put("stylist", found);
+      model.put("header", header);
+      model.put("css", "");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
     get("/stylist/:id/edit",  (request, response) -> {
       Map <String, Object> model = new HashMap <String, Object>();
       model.put("template", "templates/stylist-edit.vtl");
@@ -111,6 +122,24 @@ public class App {
       Client newClient = new Client(name, like, styleId);
       newClient.save();
       response.redirect("/list");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/client/:id",  (request, response) -> {
+      Map <String, Object> model = new HashMap <String, Object>();
+      model.put("template", "templates/client.vtl");
+      Client found = Client.find(Integer.parseInt(request.params(":id")));
+      String name = "";
+      if (found.getStylistId() == -1) {
+        name = "Need a stylist.";
+      } else {
+        name = Stylist.find(found.getStylistId()).getName();
+      }
+      model.put("title", "View client: " + found.getName());
+      model.put("client", found);
+      model.put("stylist", name);
+      model.put("header", header);
+      model.put("css", "");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 

@@ -1,0 +1,19 @@
+<h1>viewing the $stylist.getName()</h1>
+<div class="row">
+  <div class="col-md-6">
+  	<p>Style: <br /> $stylist.getStyle()</p>
+
+  	<p>Other Skills: <br /> $stylist.getSkills()</p>
+
+  	<a href = "/stylist/$stylist.getId()/edit" class="btn btn-primary">Edit $stylist.getName()</a>
+  </div>
+  <div class="col-md-6">
+  	#if ($stylist.getClient().size() > 0)
+  	  #foreach ($client in $stylist.getClient())
+	    <a href="/client/$client.getId()"><h2>$client.getName()</h2></a>
+	  #end
+  	#else
+  	  <p>need Client</p>
+  	#end
+  </div>
+</div>
