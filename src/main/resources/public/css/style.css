@@ -1,0 +1,54 @@
+body {
+  background-color: dimgray;
+}
+
+.big {
+  list-style-type: none;
+}
+
+.big li {
+  font-size: 30px;
+}
+
+.big li a {
+  color: black;
+}
+
+.big li a:hover {
+  color: dimgray !important;
+  text-decoration: overline;
+}
+
+nav {
+  background-color: silver !important;
+  border-color: gray !important;
+}
+
+nav a {
+  color: black !important;
+}
+
+nav a:hover {
+  color: dimgray !important;
+}
+
+.jumbotron {
+  background-color: silver !important;
+  border-color: gray !important;
+}
+
+.successfully {
+  background: limegreen;
+  color: maroon;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.inline {
+  margin-left: 30px;
+}
+
+.inline strong {
+  font-size: 20px;
+}

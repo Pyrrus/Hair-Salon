@@ -1,0 +1,14 @@
+<h1>Add meaning for $word.getWord()</h1>
+
+<form action="/word/$word.getId()" method="post">
+  <div class='form-group'>
+  	<label for='name'>Grammar type for $word.getWord():</label>
+  	<input name='type' id='type' type='text' class='form-control' required />
+  </div>
+
+  <div class='form-group'>
+    <label for='name'>Definition for $word.getWord():</label>
+    <textarea id='info' name='info' class='form-control' required></textarea>
+  </div>
+  <button type='submit' class='btn btn-success'>Submit</button>
+</form>

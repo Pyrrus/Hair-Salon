@@ -1,0 +1,13 @@
+<h1>$word.getWord()</h1>
+
+#if($post)
+  <h3 class="successfully">Definition added successfully!</h3>
+#end
+
+<ul class="big">
+  #foreach ($info in $word.getDefinition())
+    <li><span class="inline">Type: <em>$info.getType()</em></span></li>
+    <li><span class="inline"><stong>$info.getDefintion()</stong></span></li>
+  #end
+</ul>
+<a class="btn btn-info" href="/word/$word.getId()/new">Add Defintion to $word.getWord()</a>
