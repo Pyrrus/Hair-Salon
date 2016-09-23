@@ -7,7 +7,6 @@ public class Stylist {
   private String name;
   private String otherSkills;
   private String hairStyle;
-  // private List<Client> cilentList;
 
   public Stylist (String name, String hairStyle, String otherSkills) {
     this.name = name;

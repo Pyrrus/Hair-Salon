@@ -1,12 +1,14 @@
 <h1>View the Stylists</h1>
-
 #if ($stylists.size() > 0) 
  <div class="row">
  	#foreach ($stylist in $stylists)
-      <div class="col-md-3">
-      	<h2>$stylist.getName()</h2>
-      	<p>$stylist.getStyle()</p>
-      	<p>$stylist.getSkills()</p>
+      <div class="col-md-4">
+      	<h2>Name:</h2>
+      	<p class="space">$stylist.getName()</p>
+      	<h2>Style:</h2>
+      	<p class="space">$stylist.getStyle()</p>
+      	<h2>Skills:</h2>
+      	<p class="space">$stylist.getSkills()</p>
       </div>
  	#end
  </div>
